@@ -51,7 +51,7 @@
 
 							if(r==1){
 
-							alert('Bienvenido Admin'+ $('#usuario').val()+'  Gracias Por Acceder al Sistema');
+							alert('Bienvenido Admin: '+ $('#usuario').val()+'  Gracias Por Acceder al Sistema');
 							window.location="indexAdmin.php";
 							session_start();
 
