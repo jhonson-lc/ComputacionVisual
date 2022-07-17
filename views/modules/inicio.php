@@ -1,8 +1,6 @@
 <?php 
     include('models/conexion.php');
-    
     if (empty($_SESSION['user'])) {
-        var_dump($_SESSION['user']);
         echo '<div><h2 style="padding:15px;">Sistema de estudiantes</h2>
         <h4 style="padding:15px;">Aún no has iniciado sesión</h4>
         <img src="img/login.svg" height="550"></div>';
