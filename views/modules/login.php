@@ -51,12 +51,12 @@
 
 							if(r==1){
 
-							alert('Bienvenido '+ $('#usuario').val()+'  Gracias Por Acceder al Sistema');
+							alert('Bienvenido Admin'+ $('#usuario').val()+'  Gracias Por Acceder al Sistema');
 							window.location="indexAdmin.php";
 							session_start();
 
 							} else if(r==2){
-							alert('Bienvenid@ Estudiante: '+ $('#usuario').val()+'  Gracias Por Acceder al Sistema');
+							alert('Bienvenid@ Usuario: '+ $('#usuario').val()+'  Gracias Por Acceder al Sistema');
 							window.location="indexEstu.php";
 							session_start();
 							}

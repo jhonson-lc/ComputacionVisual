@@ -12,11 +12,30 @@
 </head>
 <br><br>
 <body>
+    <h1 style="text-align:center;">Listado de Estudiantes</h1>
+    <main style="margin-left:20px;position:relative;">
+    <form style="padding: 10px 10px 10px 20px;" action="" method="POST">
+        <input id="cedula" name="CED_EST" class="easyui-textbox" label="Cédula:"
+         style="width:20%">
+        <input id="buscar" type="submit" name="buscar" value="Buscar" 
+        style="background-color: rgba(242, 243, 244, 0.5); 
+        margin-left: 3px; padding:5px; border-radius: 5px;"></input>
+        <input id="buscar" type="submit" name="resetear" value="Resetear" 
+        style="background-color: rgba(242, 243, 244, 0.5); 
+        margin-left: 3px; padding:5px; border-radius: 5px;"></input>
+    </form>
+    <?php
+    $est_cedula = "";
+    if (isset($_POST['buscar'])) {
+        $est_cedula = $_POST['CED_EST'];
+    }
+    if (isset($_POST['resetear'])) {
+        $est_cedula = "";
+    }
+    ?>
         <main style="margin-left:20px;position:relative;">
-            <table id="dg" title="Estudiantes registrados" class="easyui-datagrid" style="width:900px;height:250px"
-                    url="models/acceder.php"
-                    toolbar="#toolbar" pagination="true"
-                    rownumbers="true" fitColumns="true" singleSelect="true">
+            <table id="dg" title="Estudiantes registrados" class="easyui-datagrid"
+                    style="width:900px;height:250px" url="models/acceder.php?CED_EST=<?php echo $est_cedula ?>" toolbar="#toolbar" pagination="true" rownumbers="true" fitColumns="true" singleSelect="true">
                 <thead>
                     <tr>
                         <th field="CED_EST" width="50">Cedula</th>
@@ -41,7 +60,10 @@
             $resultado2 = mysqli_query($conn, $sesion);
             $permisoUser = mysqli_fetch_array($resultado2);
             if($permisoUser[0]=='ADMINISTRADOR'){
-                echo '<a style="position:absolute;right:250;top:100" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="nuevoUsuario()">Registrar Usuario</a>';
+                echo '<div style="text-align:center;position:absolute;right:230;top:80">
+                <img src="img/user_add.svg" width="60" height="60"/>
+                <a href="javascript:void(0)" class="easyui-linkbutton" plain="true" onclick="nuevoUsuario()">Registrar Usuario</a>
+                    </div>';
                 echo '<div id="toolbar">
                     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newUser()">Nuevo estudiante</a>
                     <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editUser()">Editar estudiante</a>
@@ -92,7 +114,7 @@
                 <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">cancelar</a>
             </div>
             <div id="dlg-buttonss">
-                <a href="javascript:void(0)" class="easyui-linkbutton c6" iconcls="icon-ok" onclick="guardarUsuario()" style="width:90px">guardar usuario</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton c6" iconcls="icon-ok" onclick="guardarUsuario()" style="width:90px">guardar</a>
                 <a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-cancel" onclick="javascript:$('#dlgg').dialog('close')" style="width:90px">cancelar</a>
             </div>
             <script type="text/javascript">

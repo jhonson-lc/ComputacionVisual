@@ -26,7 +26,7 @@
             ";
             $resultado2 = mysqli_query($conn, $sesion);
             $sesionUser = mysqli_fetch_array($resultado2);
-            echo '<div style="position:absolute;right:0;padding:4px">
+            echo '<div style="position:absolute;right:0;padding:16px">
                         <span>'.$sesionUser[2].': '.$sesionUser[0].' '.$sesionUser[1].'</span>
                       </div>';
             }
